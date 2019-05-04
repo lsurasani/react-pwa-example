@@ -3,6 +3,7 @@ import './App.css';
 
 const App = () => {
     const [stateSrc, setStateSrc] = useState('')
+    const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
         async function fetchCats() {
@@ -12,16 +13,20 @@ const App = () => {
         }
 
         fetchCats()
-    }, [])
+        setRefresh(false)
+    }, [refresh])
 
     return (
         <div className="App">
             <div className="img-container">
+                <h1>Cat Pics!!</h1>
                 <img
                     width={250}
                     alt="cat pics"
                     src={stateSrc}
                 />
+                <br/>
+                <button onClick={() => setRefresh(true)}>Refresh!</button>
             </div>
         </div>
     );
