@@ -9,7 +9,6 @@ const App = () => {
             const response = await fetch('https://api.thecatapi.com/v1/images/search')
             const json = await response.json()
             setStateSrc(json[0].url)
-            console.log(json[0].url)
         }
 
         fetchCats()
